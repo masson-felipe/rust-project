@@ -1,0 +1,6 @@
+backend/target/
+.idea/
+.keep
+.env
+modeles.xml
+Cargo.lock
