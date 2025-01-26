@@ -1,8 +1,9 @@
 pub mod api;
 pub mod database;
 pub mod model;
-mod types;
-mod schema;
+pub mod types;
+pub mod schema;
+pub mod repository;
 
 use rocket::launch;
 use rocket_db_pools::Database;
@@ -12,5 +13,6 @@ use database::Db;
 fn rocket() -> _ {
     rocket::build()
         .attach(Db::init())
+        .attach(crate::api::component::stage())
         .attach(crate::api::hello_world::stage())
 }
