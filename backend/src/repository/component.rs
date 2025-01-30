@@ -7,3 +7,12 @@ pub async fn list_components(db: &mut Connection<Db>) -> QueryResult<Vec<Compone
         .await?
     )
 }
+
+pub async fn insert_component(component: Component, db: &mut Connection<Db>) -> QueryResult<Component> {
+    Ok(
+        diesel::insert_into(components::table)
+            .values(component)
+            .get_result::<Component>(db)
+            .await?
+    )
+}

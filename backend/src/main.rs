@@ -4,6 +4,7 @@ pub mod model;
 pub mod types;
 pub mod schema;
 pub mod repository;
+mod dto;
 
 use rocket::launch;
 use rocket_db_pools::Database;
