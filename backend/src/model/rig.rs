@@ -1,4 +1,4 @@
-use rocket_db_pools::diesel::{AsChangeset, Associations, Identifiable, Insertable, QueryId, Queryable};
+use rocket_db_pools::diesel::{Selectable, AsChangeset, Associations, Identifiable, Insertable, QueryId, Queryable};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
@@ -11,7 +11,8 @@ use super::component::Component;
     Queryable,
     Insertable,
     AsChangeset,
-    Identifiable
+    Identifiable,
+    Selectable
 )]
 #[diesel(table_name = crate::schema::rigs)]
 pub struct Rig {
@@ -26,7 +27,8 @@ pub struct Rig {
     Queryable,
     Insertable,
     Identifiable,
-    Associations
+    Associations,
+    Selectable
 )]
 #[diesel(table_name = crate::schema::rig_components)]
 /* Necessário para que o parâmetro 'Identifiable' funcione, visto que ele espera primary key
