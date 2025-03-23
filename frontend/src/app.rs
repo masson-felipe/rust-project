@@ -19,7 +19,7 @@ pub fn App() -> impl IntoView {
         <Router>
             <main>
                 <Routes>
-                    <Route path="" view=HomePage/>
+                    <Route path="" view=crate::pages::rig::RigsPage />
                     <Route path="/components" view=crate::pages::component::ComponentsPage />
                     <Route path="/rigs" view=crate::pages::rig::RigsPage />
                     <Route path="/*any" view=NotFound/>
